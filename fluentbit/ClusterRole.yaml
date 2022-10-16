@@ -1,0 +1,93 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: fluent-bit-fluent-bit-loki-clusterrole
+  uid: 0f0e287b-32cf-4609-b515-1e166ff61a6a
+  resourceVersion: '1730'
+  creationTimestamp: '2022-10-14T19:32:32Z'
+  labels:
+    app: fluent-bit-loki
+    app.kubernetes.io/managed-by: Helm
+    chart: fluent-bit-2.3.1
+    heritage: Helm
+    release: fluent-bit
+  annotations:
+    meta.helm.sh/release-name: fluent-bit
+    meta.helm.sh/release-namespace: fluentbit
+  managedFields:
+    - manager: helm
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-10-14T19:32:32Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:chart: {}
+            f:heritage: {}
+            f:release: {}
+        f:rules: {}
+rules:
+  - verbs:
+      - get
+      - watch
+      - list
+    apiGroups:
+      - ''
+    resources:
+      - namespaces
+      - pods
+
+--- 
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: fluent-bit-fluent-bit-loki-clusterrolebinding
+  uid: 860db217-4871-40f1-9b93-aaf2a5cb121c
+  resourceVersion: '1731'
+  creationTimestamp: '2022-10-14T19:32:32Z'
+  labels:
+    app: fluent-bit-loki
+    app.kubernetes.io/managed-by: Helm
+    chart: fluent-bit-2.3.1
+    heritage: Helm
+    release: fluent-bit
+  annotations:
+    meta.helm.sh/release-name: fluent-bit
+    meta.helm.sh/release-namespace: fluentbit
+  managedFields:
+    - manager: helm
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-10-14T19:32:32Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:chart: {}
+            f:heritage: {}
+            f:release: {}
+        f:roleRef: {}
+        f:subjects: {}
+subjects:
+  - kind: ServiceAccount
+    name: fluent-bit-fluent-bit-loki
+    namespace: fluentbit
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: fluent-bit-fluent-bit-loki-clusterrole
