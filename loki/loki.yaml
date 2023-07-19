@@ -28,10 +28,10 @@ spec:
             - mountPath: /data
               name: data
       restartPolicy: Always
-  volumes:
-    - name: data
-      persistentVolumeClaim:
-        claimName: loki-data-pvc
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: loki-data-pvc
 ---
 apiVersion: v1
 kind: Service
