@@ -21,6 +21,7 @@ data:
           "access": "proxy",
           "editable": true,
           "name": "loki",
+          "default": "true",
           "orgId": 1,
           "type": "loki",
           "url": "http://loki.monitoring.svc:3100",
