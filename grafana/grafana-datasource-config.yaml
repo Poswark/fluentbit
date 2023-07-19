@@ -25,6 +25,15 @@ data:
           "type": "loki",
           "url": "http://loki.monitoring.svc:3100",
           "version": 1
+        },
+        {
+          "access": "proxy",
+          "editable": true,
+          "name": "alertmanager",
+          "orgId": 1,
+          "type": "prometheus",
+          "url": "http://alertmanager-service.monitoring.svc:9093",
+          "version": 1
         }
       ]
     }

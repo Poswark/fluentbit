@@ -1,8 +1,6 @@
 # fluentbit
 
 
-[poswark@poswark-pc fluentbit]$ kubectl  create ns monitoring
-namespace/monitoring created
+[poswark@poswark-pc ]$ kubectl  create ns monitoring
 
-[poswark@poswark-pc fluentbit]$ kubectl  create ns fluentbit
-namespace/fluentbit created
+[poswark@poswark-pc ]$ kubectl  create ns fluentbit
