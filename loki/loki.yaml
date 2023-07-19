@@ -24,7 +24,14 @@ spec:
           ports:
             - containerPort: 3100
           resources: {}
+          volumeMounts:
+            - mountPath: /data
+              name: apps-logs 
       restartPolicy: Always
+  volumes:
+    - name: apps-logs
+      persistentVolumeClaim: 
+        claimName: apps-logs-pvc
 status: {}
 ---
 apiVersion: v1
