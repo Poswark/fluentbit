@@ -25,10 +25,41 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /vagrant/logs
-              name: apps-logs-pv
+              name: apps-logs
       restartPolicy: Always
       volumes:
         - name: apps-logs
           persistentVolumeClaim:
             claimName: apps-logs-pvc
 status: {}
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: apps-logs-pv
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  hostPath:
+    path: /vagrant/logs
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: apps-logs-pvc
+  namespace: monitoring
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: manual

@@ -26,13 +26,12 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /data
-              name: apps-logs 
+              name: data
       restartPolicy: Always
   volumes:
-    - name: apps-logs
-      persistentVolumeClaim: 
-        claimName: apps-logs-pvc
-status: {}
+    - name: data
+      persistentVolumeClaim:
+        claimName: loki-data-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -50,3 +49,4 @@ spec:
     io.kompose.service: loki
 status:
   loadBalancer: {}
+
